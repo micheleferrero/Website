@@ -1,0 +1,26 @@
+{% assign pub = include.pub %}
+<article class="pub" data-type="{{ pub.type }}">
+  <div class="title">{{ pub.title }}</div>
+  <div class="authors">{{ pub.authors | replace: "Michele Ferrero", '<span class="me">Michele Ferrero</span>' }}</div>
+  <div class="venue">
+    <span class="badge badge-{{ pub.type }}">{{ pub.label | default: pub.type | capitalize }}</span>
+    {{ pub.venue }}
+  </div>
+  {% if pub.abstract %}
+  <div class="abstract">{{ pub.abstract | markdownify }}</div>
+  {% endif %}
+  {% assign link_count = pub.links.size | default: 0 %}
+  {% if link_count > 0 or pub.bibtex %}
+  <div class="actions">
+    {% for link in pub.links %}
+    <a href="{{ link.url }}">{{ link.label }}</a>
+    {% endfor %}
+    {% if pub.bibtex %}
+    <details>
+      <summary>BibTeX</summary>
+      <pre>{{ pub.bibtex | escape }}</pre>
+    </details>
+    {% endif %}
+  </div>
+  {% endif %}
+</article>

@@ -1,0 +1,18 @@
+{% assign profile = site.about | first %}
+<aside>
+  <img class="avatar" src="{{ profile.avatar }}" alt="{{ profile.name }}">
+  <h1>{{ profile.name }}</h1>
+  <p class="role">
+    {% for line in profile.role %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}
+  </p>
+
+  <ul class="links">
+    <li><span>{% include icon.html name="location" %}{{ profile.location }}</span></li>
+    <li><a href="mailto:{{ profile.email }}">{% include icon.html name="mail" %}{{ profile.email }}</a></li>
+    {% for link in profile.links %}
+    <li><a href="{{ link.url }}">{% include icon.html name=link.icon %}{{ link.label }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <a class="btn-cv" href="{{ profile.cv }}">Download CV (PDF)</a>
+</aside>

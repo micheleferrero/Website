@@ -1,0 +1,38 @@
+# -----------------------------------------------------------------------------
+# Site settings
+# -----------------------------------------------------------------------------
+title: Michele Ferrero
+description: >-
+  Michele Ferrero — PhD student at EURECOM, Sorbonne University and Huawei
+  Paris Research Center, working on collective communication and networking
+  for distributed AI training.
+
+# Leave empty when the site is served from the repository root or a sub-path.
+url: ""
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+# -----------------------------------------------------------------------------
+# Content collections
+#
+# Every item on the website lives in its own Markdown file. To add something,
+# copy an existing file in the matching folder and edit its front matter. To
+# remove something, delete the file. No HTML editing is required.
+# -----------------------------------------------------------------------------
+collections:
+  about:
+    output: false
+  news:
+    output: false
+  publications:
+    output: false
+  experience:
+    output: false
+  education:
+    output: false
+  service:
+    output: false
+  projects:
+    output: false

@@ -1,0 +1,4 @@
+{% assign profile = site.about | first %}
+<footer>
+  © {{ site.time | date: "%Y" }} {{ profile.name }} · Last updated {{ site.time | date: "%B %Y" }}
+</footer>
